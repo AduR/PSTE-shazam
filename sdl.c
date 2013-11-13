@@ -2,11 +2,11 @@
 *
 *  File Name : sdl.c
 *
-*  Purpose : sdl functions
+*  Purpose : sdl functions - to draw the spectrogramme from the fmod tab to a bmp
 *
 *  Creation Date : 28-10-13 14:41:29
 *
-*  Last Modified : 28-10-13 14:41:29
+*  Last Modified : 13-11-13 14:41:29
 *
 *  Created By : achardon
 *
@@ -60,6 +60,7 @@ void ft_free_sdl(SDL_Window *window)
 }
 
 #if 0
+stuff :
     screenSurface = SDL_GetWindowSurface(window);
     SDL_FillRect(screenSurface, NULL, SDL_MapRGB(screenSurface->format, 255, 255, 255));
     SDL_UpdateWindowSurface(window);

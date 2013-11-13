@@ -29,11 +29,27 @@
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-Wextra" />
 			<Add option="-Wall" />
 		</Compiler>
+		<Linker>
+			<Add library="mingw32" />
+			<Add library="C:\Program Files (x86)\CodeBlocks\MinGW\lib\SDL2\libSDL2main.a" />
+			<Add library="C:\Program Files (x86)\CodeBlocks\MinGW\lib\SDL2\libSDL2.dll.a" />
+			<Add library="C:\Program Files (x86)\CodeBlocks\MinGW\lib\fmod\libfmodex.a" />
+		</Linker>
+		<Unit filename="constantes.h" />
+		<Unit filename="fmod.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="fmod.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="sdl.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sdl.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
