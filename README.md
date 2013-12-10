@@ -10,7 +10,7 @@ I choose to use the C programming langage, because I am too lazy to learn a new 
 
 
 
-=== Short present of the code ===
+=== Short presentation of the code ===
 
 - Make_hash : Prog to load a .wav (mp3 not suported yet), perform a Fourier Transform and save the highest
   frequencies to a file.
@@ -24,7 +24,7 @@ I choose to use the C programming langage, because I am too lazy to learn a new 
 - a post from redcode, very usefull, altough it used java http://www.redcode.nl/blog/2010/06/creating-shazam-in-java/
 - Fmod ex : not really working
 - SDL for all graphic rendering http://www.libsdl.org/
-- fftw for Fourier transforms http://www.fftw.org/
+- lib fftw for Fourier transforms http://www.fftw.org/
 
 
 === History ===
