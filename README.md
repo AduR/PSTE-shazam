@@ -1,12 +1,22 @@
-=====================================
-PSTE-shazam - reconnaissance musicale
-=====================================
+=========================================
+  PSTE-shazam - reconnaissance musicale
+=========================================
 
 
-=== Whet is this repo for ===
+=== What is this repo for ===
 
 This is a student project (ECE Paris), for the year 2013-2014. I am aprt of a 6 students group
 I choose to use the C programming langage, because I am too lazy to learn a new programming langage
+
+
+
+=== Short present of the code ===
+
+- Make_hash : Prog to load a .wav (mp3 not suported yet), perform a Fourier Transform and save the highest
+  frequencies to a file.
+- Match : Prog to compare hash files mades with the above prog, and output a sumary of the number of matchs
+  found for each file
+
 
 
 === What has been used ===
