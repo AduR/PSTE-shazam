@@ -12,10 +12,18 @@ I choose to use the C programming langage, because I am too lazy to learn a new 
 
 === Short presentation of the code ===
 
-- Make_hash : Prog to load a .wav (mp3 not suported yet), perform a Fourier Transform and save the highest
+=> Make_hash : Prog to load a .wav (mp3 not suported yet), perform a Fourier Transform and save the highest
   frequencies to a file.
-- Match : Prog to compare hash files mades with the above prog, and output a sumary of the number of matchs
+- main.c : no comment
+- other.c : to be removed
+- ft_utils.c : error checking for functions like malloc
+- ft_init.c : load the music, malloc the fft struct and perform the fft + free functions
+- ft_getHash.c : retrieve the highest intensities for each time
+  
+=> Match : Prog to compare hash files mades with the above prog, and output a sumary of the number of matchs
   found for each file
+  - old_main.c : to be revoded
+  - main.c : to be split in multiple files
 
 
 
