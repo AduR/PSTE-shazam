@@ -6,7 +6,7 @@
 *
 *  Creation Date : 09-12-13 11:21:32
 *
-*  Last Modified : 10-12-13 11:24:12
+*  Last Modified : 03-01-14 21:27:50
 *
 *  Created By : Nodraak
 *
@@ -23,7 +23,7 @@ void *my_malloc(uint64_t size, char *file, int line)
 
     if (ptr == NULL)
     {
-        printf("Erreur malloc in %s l.%d\n", file, line);
+        printf("Error malloc in %s l.%d for size %llu B.\n", file, line, size);
         exit(EXIT_FAILURE);
     }
 
@@ -34,7 +34,7 @@ uint64_t ft_my_pow(uint64_t nb, uint64_t pow)
 {
     uint64_t ret = 1, i;
 
-    for (i = 1; i < pow; i++)
+    for (i = 0; i < pow; i++)
         ret *= nb;
 
     return ret;

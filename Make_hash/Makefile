@@ -1,9 +1,9 @@
 
 #=== VARIABLES ===
-NAME = pste_shazam
+NAME = make_hash
 INC_DIR = includes/
 SRCS_DIR = srcs/
-SRCS = main.c ft_getHash.c ft_init.c ft_utils.c
+SRCS = main.c ft_getHash.c ft_init.c ft_utils.c #time_analyse.c
 OBJ = $(SRCS:.c=.o)
 OBJ_DIR = obj/
 INCLUDE = -I/usr/local/include/SDL2

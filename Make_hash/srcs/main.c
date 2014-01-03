@@ -6,7 +6,7 @@
 *
 *  Creation Date : 23-11-13 15:55:04
 *
-*  Last Modified : 10-12-13 11:23:51
+*  Last Modified : 03-01-14 21:28:06
 *
 *  Created By : adur
 *
@@ -22,27 +22,27 @@
 
 int main(int argc, char *argv[])
 {
-    t_wav *wav;
-    t_fft *fft;
+    t_wav *wav = NULL;
+    t_fft *fft = NULL;
+    t_max *ptr = NULL;
 
     /*=== chek param ===*/
     if (argc != 2)
     {
-        printf("Need a file as param to compute hash.\n");
+        printf("Need one (and only one) file as param to compute its hash.\n");
         return 0;
     }
 
     /*=== init ===*/
-    (void)argc, (void)argv; // disable warning
     wav = ft_init_wav(argv[1]);
     fft = ft_init_fft(wav->len);
     ft_perform_fft(fft, wav);
 
     /*=== get hash ===*/
-    t_max *ptr = ft_get_hash_tab(fft);
+    ptr = ft_get_hash_tab(fft);
     ft_print_t_max(ptr, fft->lenB);
 
-    /*=== free ===*/
+    /*=== clean ===*/
     free(ptr);
     ft_free_wav(wav);
     ft_free_fft(fft);
