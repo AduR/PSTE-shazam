@@ -1,0 +1,8 @@
+
+convert mp3 to wav (require mpg123)
+	mpg123 -w output.wav input.mp3
+
+cut wav file
+	sox old.wav new.wav trim [SECOND TO START] [SECONDS DURATION]
+
+
