@@ -25,6 +25,10 @@ notes for the defines :
         shazam uses 3, redcode says 3 or 4
     ENCODE_NB
         selector for the hash number, so that max intensities do not overlap
+    ROUND
+        hash/n ===> arrondi ===> reduction du bruit
+        10 is to much, 5 a little too much ===> try 3 or maybe 2
+        ok for original file, but real listening may be != ===> 10 ?
 */
 
 #define SAMPLING_FREQ       44100   /* en francais : frequence d'echantillonage */
@@ -34,27 +38,25 @@ notes for the defines :
 #define OFFSET_SIZE         (SAMPLING_FREQ*STEP)
 #define NB_MAX_INTENSITY    3
 #define ENCODE_NB           10000
+#define ROUND               2
 
-/*
-#define TIME_DIV        (1.0/100000)    // force double type
-*/
+/*=== STRUCT ===*/
 
-//=== STRUCT ===
-
+/* music raw data */
 typedef struct      s_wav
 {
     SDL_AudioSpec   spec;
     uint32_t        len;    /* t_wav->buf size in Bytes */
     uint8_t         *buf;   /* music data */
 }                   t_wav;
-
+/* fourier transform output */
 typedef struct      s_fft
 {
     fftw_complex    **out;  /* the spectrogram computed by fftw */
-    uint32_t        lenB;   /* Byte - size in of the out tab (time unit) */
-    double          lenT;   /* Time - music size in sec */
+    uint32_t        lenB;   /* lenByte - size in of the out tab (time unit) */
+    double          lenT;   /* lenTime - music size in sec */
 }                   t_fft;
-
+/* hash */
 typedef struct      s_max
 {
     uint64_t        hash;

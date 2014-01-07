@@ -6,7 +6,7 @@
 *
 *  Creation Date : 09-12-13 10:55:04
 *
-*  Last Modified : 03-01-14 21:30:20
+*  Last Modified : 07-01-14 11:15:02
 *
 *  Created By : Nodraak
 *
@@ -89,7 +89,7 @@ void ft_get_max(fftw_complex *out, t_max maxTab[])
     uint64_t i;
     double currentMax;
 
-    /* skip firsts freq, causing false info TODO define */
+    /* skip firsts freq, causing false true info TODO define */
     for (i = 50; i < CHUNK_SIZE/2+1; i++)
     {
         currentMax = out[i][0] + out[i][1];
@@ -97,18 +97,14 @@ void ft_get_max(fftw_complex *out, t_max maxTab[])
         if (currentMax > maxTab[0].intensity)
         {
             maxTab[0].intensity = currentMax;
-            maxTab[0].hash = i; // TODO : set to real hz freq, not arbitrairy unit
+            maxTab[0].hash = i;
+            // TODO : set to real hz freq, not arbitrairy unit - 7/01/14 osef
             ft_sortTab(maxTab);
         }
     }
 }
 
-/*
- *  hash/10*10 ===> arrondi ===> reduction du bruit
- *  !! 10 is to much, 5 a little too much ===> try 3 or maybe 2
- *  !! ok for original file, but real listening may be != ===> 10 ?
- * ===> should do a define instead of a hard coded value TODO define
- */
+
 void ft_save_max_intensities(t_max *ptr, t_max maxTab[])
 {
     uint64_t i;
@@ -120,7 +116,7 @@ void ft_save_max_intensities(t_max *ptr, t_max maxTab[])
     /* fill */
     for (i = 0; i < NB_MAX_INTENSITY; i++)
     {
-       ptr->hash += (maxTab[i].hash/10)*10 * ft_my_pow(ENCODE_NB, i);
+       ptr->hash += (maxTab[i].hash/ROUND) * ft_my_pow(ENCODE_NB, i);
        ptr->intensity += maxTab[i].intensity;
     }
 }
