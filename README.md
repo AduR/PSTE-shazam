@@ -15,16 +15,17 @@ and I am too lazy to learn a new programming langage.
 Prog to load a .wav (mp3 not suported yet), perform a Fourier Transform and encode
 the highest frequencies to a hash and save them in a .txt file.
 - main.c : no comment
-- other.c : to be removed
 - ft_utils.c : error checking for functions like malloc
 - ft_init.c : load the music, malloc the fft struct and perform the fft + free functions
 - ft_getHash.c : retrieve the highest intensities for each given time
-  
+- ft_time_analyse : stats about time for stats
+
 ### Match ###
 Prog to compare hash files mades with the above prog, and output a sumary of the number
 of matchs found for each file.
-  - old_main.c : to be revoded
-  - main.c : will be split in multiple files
+- main.c : no comment
+- ft_loadHash.c : load database
+- ft_compare : compare and get the number of matching hash
 
 
 ## Usefull documents ##
