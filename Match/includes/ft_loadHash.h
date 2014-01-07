@@ -2,8 +2,7 @@
 #define FT_LOADHASH_H
 
 t_data *ft_load_data(void);
-void ft_add_music(char *filePath, uint64_t idFile,
-                    t_music **ptrMusic, t_hash **ptrHash);
+t_hash *ft_add_music(char *filePath, uint64_t idFile, t_hash *head);
 
 void *ft_malloc(size_t size, char *s, int l);
 t_music *ft_create_elem_music(uint64_t idFile, char *filePath);

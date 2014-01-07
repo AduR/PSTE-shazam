@@ -3,7 +3,7 @@
 NAME = match
 INC_DIR = includes/
 SRCS_DIR = srcs/
-SRCS =	main.c ft_loadHash.c ft_compare.c
+SRCS =	main.c ft_loadHash.c ft_compare.c ft_result.c
 OBJ = $(SRCS:.c=.o)
 OBJ_DIR = obj/
 #INCLUDE = -I/usr/local/include/SDL2

@@ -6,7 +6,7 @@
 *
 *  Creation Date : 07-01-14 10:57:08
 *
-*  Last Modified : 07-01-14 15:27:20
+*  Last Modified : 07-01-14 18:48:03
 *
 *  Created By : Nodraak
 *
@@ -23,7 +23,6 @@ t_data *ft_load_data(void)
 {
     t_data *head = NULL;
     t_music *ptrMusic = NULL;
-    t_hash *ptrHash = NULL;
     DIR *dir = NULL;
     uint64_t idFile = 1;
     char *filePath = NULL;
@@ -33,16 +32,21 @@ t_data *ft_load_data(void)
 
     while ((filePath = ft_read_dir(dir, PATH)) != NULL)
     {
-        if (ptrMusic == NULL) // first time
+        if (ptrMusic == NULL) // first time - init
         {
-            ft_add_music(filePath, idFile, &head->music, &head->hash);
+            head->music = ft_create_elem_music(idFile, filePath);
             ptrMusic = head->music;
-            ptrHash = head->hash;
+
+            head->hash = ft_create_elem_hash(0, 0);
+            ft_add_music(filePath, idFile, head->hash);
         }
         else
-            ft_add_music(filePath, idFile, &ptrMusic->next, &ptrHash->next);
-        ptrMusic = ptrMusic->next;
-        ptrHash = ptrHash->next;
+        {
+            ptrMusic->next = ft_create_elem_music(idFile, filePath);
+            ptrMusic = ptrMusic->next;
+
+            ft_add_music(filePath, idFile, head->hash);
+        }
 
         idFile++;
     }
@@ -51,25 +55,39 @@ t_data *ft_load_data(void)
     return head;
 }
 
-void ft_add_music(char *filePath, uint64_t idFile,
-                    t_music **ptrMusic, t_hash **ptrHash)
+t_hash *ft_add_music(char *filePath, uint64_t idFile, t_hash *head)
 {
     FILE *file = NULL;
     char buf[BUF_SIZE];
     uint64_t hash;
+    t_hash *ptr, *tmp;
 
     file = ft_fopen(filePath);
 
+    while (head->next != NULL)
+        head = head->next;
+
     while (!feof(file))
     {
+        // get hash
         fgets(buf, BUF_SIZE-1, file);
         sscanf(buf, "%"SCNu64, &hash);
 
-        *ptrMusic = ft_create_elem_music(idFile, filePath);
-        *ptrHash = ft_create_elem_hash(idFile, hash);
+        /*// get place to add
+        ptr = head;
+        while (ptr->next != NULL && ptr->next->hash < hash)
+            ptr = ptr->next;
+        // add elem
+        tmp = ptr->next;
+        ptr->next = ft_create_elem_hash(idFile, hash);
+        ptr->next->next = tmp;*/
+
+        head->next = ft_create_elem_hash(idFile, hash);
+        head = head->next;
     }
 
     fclose(file);
+    return head;
 }
 
 ///////////////////////////////////////////////////////////

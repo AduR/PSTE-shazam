@@ -6,7 +6,7 @@
 *
 *  Creation Date : 07-01-14 10:57:08
 *
-*  Last Modified : 07-01-14 15:27:52
+*  Last Modified : 07-01-14 18:47:01
 *
 *  Created By : Nodraak
 *
@@ -40,11 +40,10 @@ uint64_t *ft_compare(t_data *head, char *s)
         while (ptr != NULL)
         {
             if (ptr->hash == hash)
-            {
-                printf("got matching hash=%llu id=%llu\n", ptr->hash,
-                                                ptr->id_music);
                 tab[ptr->id_music]++;
-            }
+            //if (ptr->hash > hash)
+            //    break;
+
             ptr = ptr->next;
         }
     }
