@@ -41,6 +41,7 @@ of matchs found for each file.
   (spectrogram) with SDL. Not really working, moreover spectrograms are more funny than uselfull. 
 - dec : found the fftw lib, the paramount for Fourier transform. It own a large amount of FFT functions,
   I tryed one randomly, it provide good results for a beginning but need some adjustements.
+- jan : finish Make_hash code and coding Match
 
 
 ## Credits and license ##
