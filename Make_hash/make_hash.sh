@@ -5,6 +5,7 @@ PROG_NAME=make_hash
 
 NB=1
 mkdir Hash
+cp includes/constantes.h ./Hash/constantes.h
 for file_in_full in $(find $MUSIC_PATH -iname '*.wav'); 
 do
 	echo ""
