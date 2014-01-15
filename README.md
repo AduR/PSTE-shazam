@@ -12,7 +12,7 @@ and I am too lazy to learn a new programming langage.
 ## Hacking and exploring - Code structure ##
 
 ### Make_hash ###
-Prog to load a .wav (mp3 not suported yet), perform a Fourier Transform and encode
+Prog to load a .wav (mp3 not suported yet - a unix cmd exist to convert mp3 to wav), perform a Fourier Transform and encode
 the highest frequencies to a hash and save them in a .txt file.
 - main.c : no comment
 - ft_utils.c : error checking for functions like malloc
@@ -21,6 +21,7 @@ the highest frequencies to a hash and save them in a .txt file.
 - ft_time_analyse : stats about time for stats
 
 ### Match ###
+=> will be deleted, mysql will do it for us
 Prog to compare hash files mades with the above prog, and output a sumary of the number
 of matchs found for each file.
 - main.c : no comment
@@ -33,7 +34,7 @@ of matchs found for each file.
 - Fmod ex : not really working
 - SDL : for all graphic rendering http://www.libsdl.org/
 - Fftw : C librairy for Fourier transforms http://www.fftw.org/
-
+- MySQL database
 
 ## Changes - History ##
 - sept - oct : googling ... found a post on redcode about a Java coded shazam
