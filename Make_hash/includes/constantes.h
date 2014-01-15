@@ -49,13 +49,15 @@ typedef struct      s_wav
     uint32_t        len;    /* t_wav->buf size in Bytes */
     uint8_t         *buf;   /* music data */
 }                   t_wav;
-/* fourier transform output */
+
+// fourier transform output */
 typedef struct      s_fft
 {
     fftw_complex    **out;  /* the spectrogram computed by fftw */
     uint32_t        lenB;   /* lenByte - size in of the out tab (time unit) */
     double          lenT;   /* lenTime - music size in sec */
 }                   t_fft;
+
 /* hash */
 typedef struct      s_max
 {

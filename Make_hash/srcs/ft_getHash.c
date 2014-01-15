@@ -6,7 +6,7 @@
 *
 *  Creation Date : 09-12-13 10:55:04
 *
-*  Last Modified : 07-01-14 11:15:02
+*  Last Modified : 15-01-14 12:01:20
 *
 *  Created By : Nodraak
 *
@@ -29,7 +29,7 @@ void ft_sortTab(t_max *tab)
     uint64_t i_tmp;
     double d_tmp;
 
-    while (!done)
+    while (done == 0)
     {
         done = 1;
 
