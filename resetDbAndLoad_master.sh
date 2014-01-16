@@ -1,6 +1,6 @@
 #!/bin/sh
 
-HASH_PATH="./Hash"
+HASH_PATH="./Hash_round10/"
 NB=1
 
 echo "reseting database"
